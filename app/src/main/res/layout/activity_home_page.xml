@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.asm_linksys.taskschedulerboss.activity.MainActivity">
+
+    <EditText
+        android:id="@+id/username_home_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="91dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/password_home_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/username_home_page"
+        android:layout_alignStart="@+id/username_home_page"
+        android:layout_below="@+id/username_home_page"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/login_button_home_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/password_home_page"
+        android:layout_alignStart="@+id/password_home_page"
+        android:layout_below="@+id/password_home_page"
+        android:layout_marginTop="56dp"
+        android:text="Login" />
+
+    <Button
+        android:id="@+id/register_button_home_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/password_home_page"
+        android:layout_alignRight="@+id/password_home_page"
+        android:layout_alignTop="@+id/login_button_home_page"
+        android:text="Register" />
+
+    <TextView
+        android:id="@+id/welcome_textview_home_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:fontFamily="monospace"
+        android:text="Welcome to Task Scheduler"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textStyle="normal|italic" />
+</RelativeLayout>
