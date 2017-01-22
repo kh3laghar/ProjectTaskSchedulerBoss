@@ -1,7 +1,10 @@
 package com.asm_linksys.taskschedulerboss.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.asm_linksys.taskschedulerboss.R;
+import com.asm_linksys.taskschedulerboss.fragment.SoftwareHelpFragment;
 
 //import android.widget.RadioGroup;
 
@@ -18,7 +22,7 @@ import com.asm_linksys.taskschedulerboss.R;
  * Created by Md. Asiful Haque on 1/19/2017.
  */
 
-public class UserRegistration extends AppCompatActivity {
+public class UserRegistration extends FragmentActivity {
     private ImageButton goBackToHome, softwareHelp;
     private Button register;
     // private RadioGroup gender;
@@ -36,6 +40,26 @@ public class UserRegistration extends AppCompatActivity {
          */
         goBackToHome = (ImageButton) findViewById(R.id.home__image_button_register_page);
         softwareHelp = (ImageButton) findViewById(R.id.software_help_image_button_register_page);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        SoftwareHelpFragment softwareHelpFragment = new SoftwareHelpFragment();
+        fragmentTransaction.add(R.id.list_view_fragment, softwareHelpFragment);
+        fragmentTransaction.commit();
+
+        /*softwareHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager softwareHelpFragment = getSupportFragmentManager();
+                FragmentTransaction softwareHelpFragmentTransaction = softwareHelpFragment.beginTransaction();
+                SoftwareHelpFragment softwareHelpFragmentIns = new SoftwareHelpFragment();
+                softwareHelpFragmentTransaction.add(R.id.list_view_fragment,softwareHelpFragmentIns);
+                softwareHelpFragmentTransaction.commit();
+                softwareHelpFragmentTransaction.replace(R.id.list_view_fragment,softwareHelpFragmentIns);
+
+
+            }
+        });
+        */
 
         //Start of Register Button Action
         register = (Button) findViewById(R.id.register_button_register_page);
@@ -72,5 +96,14 @@ public class UserRegistration extends AppCompatActivity {
         possitionSpinnerAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         selectPossition.setAdapter(possitionSpinnerAdapter);
         //End of Select Possition
+    }
+
+    public void onSelectedFragment(View view) {
+        Fragment tempFragment;
+        if (view == findViewById((R.id.software_help_image_button_register_page))) {
+            tempFragment = new SoftwareHelpFragment();
+        } else {
+            Toast.makeText(UserRegistration.this, "No fragment foun", Toast.LENGTH_SHORT).show();
+        }
     }
 }
